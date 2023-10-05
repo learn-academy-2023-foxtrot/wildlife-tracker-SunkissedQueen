@@ -24,7 +24,7 @@ end
 
 - Create API endpoints
 ### Workflow
-- create branch for the endpoint
+- create branch for the index, show, create endpoint (stretch goals: update and delete). New and edit will require user interactions on the views. We don't views here.
 - create a controller method
 - Postman to make a request to the endpoint
 
@@ -47,3 +47,13 @@ end
   - `Body -> Pretty -> JSON`
   - If see some html on the printout, that is an error message
   - `Body -> Preview`
+
+### show endpoint
+- create branch for the endpoint
+- create a controller method
+- Postman to make a request to the endpoint
+
+### create endpoint
+- create branch for the endpoint
+- create a controller method
+- Postman to make a request to the endpoint
