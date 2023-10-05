@@ -1,0 +1,2 @@
+class CowTipping < ApplicationRecord
+end

@@ -1,24 +1,34 @@
-# README
+## Rails API and Postman
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### API: Application Programming Interface
+- allows web applications to communicate with each other
+  - transmitting data in the form of JSON (JavaScript Object Notation)
+  - API will receive a request from a different application and the API endpoint will respond with the appropriate data
 
-Things you may want to cover:
+- Generate a resource with appropriate columns and datatypes
+  - resource will create a model, controller, view, and routes
+  ***NOTE: type***
+  - $ rails g resource CowTipping name:string breed:string farm:string
+  - $ rail db:migrate
 
-* Ruby version
+- Stub some data entries
+  - $ rails c
+  - > CowTipping.create(name: 'Lucy', breed: 'heifer', farm: 'Old McDonald')
 
-* System dependencies
+- Disable the authenticity token
+```rb
+class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token
+end
+```
 
-* Configuration
+- Create API endpoints
+### Workflow
+- create branch for the endpoint
+- create a controller method
+- Postman to make a request to the endpoint
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### index
+- create branch for the endpoint
+- create a controller method
+- Postman to make a request to the endpoint

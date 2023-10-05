@@ -1,0 +1,2 @@
+class CowTippingsController < ApplicationController
+end
