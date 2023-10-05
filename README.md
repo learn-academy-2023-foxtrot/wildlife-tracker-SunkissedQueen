@@ -31,4 +31,19 @@ end
 ### index
 - create branch for the endpoint
 - create a controller method
+```rb
+  def index
+    # instance variables are not needed because we don't have views
+    # active record query to return all the instances within our database 
+    cows = CowTipping.all
+    # because we do not have views, we will render the instances stored in the cows variable as json
+    render json: cows
+  end
+```
 - Postman to make a request to the endpoint
+  #### request
+  - `GET -> localhost:3000/cow_tippings -> Send`
+  #### output
+  - `Body -> Pretty -> JSON`
+  - If see some html on the printout, that is an error message
+  - `Body -> Preview`
