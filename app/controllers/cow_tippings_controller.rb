@@ -19,6 +19,16 @@ class CowTippingsController < ApplicationController
     end
   end
 
+  def update
+    cow = CowTipping.find(params[:id])
+    cow.update(cow_params)
+    if cow.valid?
+      render json: cow
+    else
+      render json: cow.errors
+    end
+  end
+
   private
   def cow_params
     params.require(:cow_tipping).permit(:name, :breed, :farm)
