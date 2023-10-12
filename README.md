@@ -234,12 +234,12 @@ ch: true)
 - create a controller method
 ```rb
   def update
-    cow = CowTipping.find(params[:id])
-    cow.update(cow_params)
-    if cow.valid?
-      render json: cow
+    date = CowDate.find(params[:id])
+    date.update(date_params)
+    if date.valid?
+      render json: date
     else
-      render json: cow.errors
+      render json: date.errors
     end
   end
 ```
@@ -259,3 +259,23 @@ ch: true)
   #### output
   - `Body -> Pretty -> JSON`
 
+### destroy endpoint
+- create branch for the endpoint
+- create a controller method
+```rb
+  def destroy
+    date = CowDate.find(params[:id])
+    dates = CowDate.all
+    date.destroy
+    if date.valid?
+      render json: dates
+    else
+      render json: date.errors
+    end
+  end
+```
+- Postman to make a request to the endpoint
+  #### request
+  - `DELETE -> localhost:3000/cow_dates/4 -> Send`
+  #### output
+  - `Body -> Pretty -> JSON`

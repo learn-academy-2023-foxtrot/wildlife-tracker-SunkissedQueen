@@ -28,6 +28,17 @@ class CowDatesController < ApplicationController
     end
   end
 
+  def destroy
+    date = CowDate.find(params[:id])
+    dates = CowDate.all
+    date.destroy
+    if date.valid?
+      render json: dates
+    else
+      render json: date.errors
+    end
+  end
+
   private
   def date_params
     params.require(:cow_date).permit(:cow_tipping_id, :cow_name, :date, :match)
