@@ -194,5 +194,38 @@ ch: true)
   - `Body -> Pretty -> JSON`
 
 
+### create endpoint
+- create branch for the endpoint
+- create a controller method
+```rb
+  def create
+    date = CowDate.create(date_params)
+    if date.valid?
+      render json: date
+    else
+      render json: date.errors
+    end
+  end
 
+  private
+  def date_params
+    # ensure cow tipping id is permitted
+    params.require(:cow_date).permit(:cow_tipping_id, :cow_name, :date, :match)
+  end
+```
+- Postman to make a request to the endpoint
+  #### request
+  - `POST -> localhost:3000/cow_dates`
+  - `Body -> raw -> JSON`
+```rb
+  {
+    "cow_tipping_id": 2,
+    "cow_name": "Betsy",
+    "date": "Belted Galloway",
+    "match": true
+  }
+```
+  -  `-> Send`
+  #### output
+  - `Body -> Pretty -> JSON`
 
