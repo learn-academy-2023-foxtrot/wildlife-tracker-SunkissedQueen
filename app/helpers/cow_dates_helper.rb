@@ -1,0 +1,2 @@
+module CowDatesHelper
+end

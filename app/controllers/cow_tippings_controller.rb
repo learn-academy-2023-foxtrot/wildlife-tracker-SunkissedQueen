@@ -1,5 +1,5 @@
 class CowTippingsController < ApplicationController
-
+  
   def index
     cows = CowTipping.all
     render json: cows
@@ -29,6 +29,16 @@ class CowTippingsController < ApplicationController
     end
   end
 
+  def destroy
+    cow = CowTipping.find(params[:id])
+    cows = CowTipping.all
+    cow.destroy
+    if cow.valid?
+      render json: cows
+    else
+      render json: cow.errors
+    end
+  end
   private
   def cow_params
     params.require(:cow_tipping).permit(:name, :breed, :farm)
