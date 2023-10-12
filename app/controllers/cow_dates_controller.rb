@@ -18,6 +18,16 @@ class CowDatesController < ApplicationController
     end
   end
 
+  def update
+    date = CowDate.find(params[:id])
+    date.update(date_params)
+    if date.valid?
+      render json: date
+    else
+      render json: date.errors
+    end
+  end
+
   private
   def date_params
     params.require(:cow_date).permit(:cow_tipping_id, :cow_name, :date, :match)

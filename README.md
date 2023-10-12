@@ -229,3 +229,33 @@ ch: true)
   #### output
   - `Body -> Pretty -> JSON`
 
+### update endpoint
+- create branch for the endpoint
+- create a controller method
+```rb
+  def update
+    cow = CowTipping.find(params[:id])
+    cow.update(cow_params)
+    if cow.valid?
+      render json: cow
+    else
+      render json: cow.errors
+    end
+  end
+```
+- Postman to make a request to the endpoint
+  #### request
+  - `PATCH -> localhost:3000/cow_dates/3`
+  - `Body -> raw -> JSON`
+```rb
+  {
+    "cow_tipping_id": 3,
+    "cow_name": "Barney",
+    "date": "2023-08-28",
+    "match": false
+  }
+```
+  -  `-> Send`
+  #### output
+  - `Body -> Pretty -> JSON`
+
